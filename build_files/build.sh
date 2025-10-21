@@ -12,6 +12,22 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux 
 
+/ctx/build_files/install_wazuhagent.sh
+
+
+echo "::group:: ===Desktop Changes==="
+/ctx/build_files/desktop-changes.sh
+echo "::endgroup::"
+
+
+echo "::group:: ===Desktop Packages==="
+/ctx/build_files/desktop-packages.sh
+echo "::endgroup::"
+
+echo "::group:: ===Wazuh agent==="
+/ctx/build_files/install_wazuhagent.sh
+echo "::endgroup::"
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
