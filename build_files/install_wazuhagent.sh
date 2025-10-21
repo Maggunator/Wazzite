@@ -20,4 +20,5 @@ EOF
 
 
 ### Install packages
-dnf install wazuh-agent
+dnf install --setopt=install_weak_deps=False -y \
+    wazuh-agent
