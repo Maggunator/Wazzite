@@ -20,5 +20,4 @@ EOF
 
 
 ### Install packages
-dnf install --setopt=install_weak_deps=False -y \
-    wazuh-agent
+rpm-ostree install wazuh-agent
