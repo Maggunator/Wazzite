@@ -12,13 +12,15 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux 
 
+ls -l /ctx
+
 echo "::group:: ===Desktop Changes==="
-/ctx/desktop-changes.sh
+/ctx/desktop_changes.sh
 echo "::endgroup::"
 
 
 echo "::group:: ===Desktop Packages==="
-/ctx/desktop-packages.sh
+/ctx/desktop_packages.sh
 echo "::endgroup::"
 
 echo "::group:: ===Wazuh agent==="
