@@ -1,7 +1,7 @@
-repo_image_name_styled := "bOS"
-repo_image_name := "bos"
-repo_name := "bsherman"
-username := "bsherman"
+repo_image_name_styled := "Wazzite"
+repo_image_name := "Wazzite"
+repo_name := "Wazzite"
+username := "MAggunator"
 images := '(
     [aurora]="aurora"
     [aurora-nvidia]="aurora-nvidia"
