@@ -1,6 +1,6 @@
 repo_image_name_styled := "wazzite"
 repo_image_name := "wazzite"
-repo_name := "wazzite"
+repo_name := "maggunator"
 username := "Maggunator"
 images := '(
     [aurora]="aurora"
