@@ -360,11 +360,9 @@ build-iso image="bluefin" ghcr="0" clean="0":
     esac
     curl -Lo "${FLATPAK_REFS_DIR_ABS}"/flatpaks.txt "${FLATPAK_LIST_URL}"
     ADDITIONAL_FLATPAKS=(
-        app/com.discordapp.Discord/x86_64/stable
-        app/com.spotify.Client/x86_64/stable
+        app/dev.aunetx.deezer/x86_74/stable
         app/org.gimp.GIMP/x86_64/stable
         app/org.libreoffice.LibreOffice/x86_64/stable
-        app/org.prismlauncher.PrismLauncher/x86_64/stable
     )
     if [[ "{{ image }}" =~ bazzite ]]; then
         ADDITIONAL_FLATPAKS+=(app/org.gnome.World.PikaBackup/x86_64/stable)
