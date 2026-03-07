@@ -9,8 +9,7 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y tmux
 
 ls -l /ctx
 
@@ -18,22 +17,17 @@ echo "::group:: ===Desktop Changes==="
 /ctx/desktop_changes.sh
 echo "::endgroup::"
 
-
 echo "::group:: ===Desktop Packages==="
 /ctx/desktop_packages.sh
+echo "::endgroup::"
+
+echo "::group:: ===Flatpak Apps==="
+/ctx/install_flatpaks.sh
 echo "::endgroup::"
 
 echo "::group:: ===Wazuh agent==="
 /ctx/install_wazuhagent.sh
 echo "::endgroup::"
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
-
-#### Example for enabling a System Unit File
-
+#### Enable System Services
 systemctl enable podman.socket

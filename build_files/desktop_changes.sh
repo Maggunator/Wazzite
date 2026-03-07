@@ -14,3 +14,40 @@ mkdir -p /tmp/ublue-schema-test &&
         glib-compile-schemas --strict /tmp/ublue-schema-test || exit 1 &&
         echo "Compiling gschema to include bos setting overrides" &&
         glib-compile-schemas /usr/share/glib-2.0/schemas &>/dev/null
+
+echo "Masking unused services..."
+
+# Only mask services that actually exist in this image
+mask_if_exists() {
+    for service in "$@"; do
+        if systemctl list-unit-files "${service}" &>/dev/null; then
+            echo "Masking ${service}..."
+            systemctl mask "${service}"
+        else
+            echo "Skipping ${service} (not found)"
+        fi
+    done
+}
+
+# Gaming services - not needed on this device
+mask_if_exists \
+    ds-inhibit.service \
+    hhd.service \
+    input-remapper.service \
+    switcheroo-control.service
+
+# Peripherals not present
+mask_if_exists \
+    ModemManager.service \
+    cups.service \
+    bluetooth.service
+
+# Hardware-specific: no AMD GPU on Intel XPS 13
+mask_if_exists \
+    modprobe@amdgpu.service
+
+# Boot performance improvements
+mask_if_exists \
+    systemd-binfmt.service \
+    systemd-rfkill.service \
+    systemd-rfkill.socket

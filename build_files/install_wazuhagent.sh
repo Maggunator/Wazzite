@@ -2,11 +2,10 @@
 
 set -ouex pipefail
 
-# Import the GPG key:
+# Import the GPG key
 rpm --import https://packages.wazuh.com/key/GPG-KEY-WAZUH
 
-
-#Add the repository:
+# Add the repository
 cat > /etc/yum.repos.d/wazuh.repo << EOF
 [wazuh]
 gpgcheck=1
@@ -17,7 +16,8 @@ baseurl=https://packages.wazuh.com/4.x/yum/
 priority=1
 EOF
 
+# Install Wazuh agent via dnf5 (rpm-ostree not available during image build)
+dnf5 install -y wazuh-agent
 
-
-### Install packages
-rpm-ostree install wazuh-agent
+# Enable Wazuh agent service
+systemctl enable wazuh-agent
