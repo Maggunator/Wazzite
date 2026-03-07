@@ -14,4 +14,5 @@ flatpak install -y flathub \
     com.visualstudio.code \
     io.deezer.Deezer \
     app.zen_browser.zen \
-    com.brave.Browser
+    com.brave.Browser \
+    dev.zed.Zed
