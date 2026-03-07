@@ -11,8 +11,7 @@ flatpak install -y flathub \
     md.obsidian.Obsidian \
     com.bitwarden.desktop \
     org.libreoffice.LibreOffice \
-    com.visualstudio.code \
-    io.deezer.Deezer \
+    dev.aunetx.deezer \
     app.zen_browser.zen \
     com.brave.Browser \
     dev.zed.Zed
