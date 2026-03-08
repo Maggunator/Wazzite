@@ -11,8 +11,8 @@ concurrency:
     || github.run_id }}-${{ inputs.image_flavor }}
   cancel-in-progress: true
 env:
-  IMAGE_REGISTRY: ghcr.io/Maggunator
-  IMAGE_NAME: Wazzite
+  IMAGE_REGISTRY: ghcr.io/maggunator
+  IMAGE_NAME: wazzite
   SET_X: 1
 jobs:
   get-images:
