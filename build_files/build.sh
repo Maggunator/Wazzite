@@ -30,4 +30,7 @@ echo "::group:: ===Wazuh agent==="
 echo "::endgroup::"
 
 #### Enable System Services
-systemctl enable podman.socket
+# Create symlinks directly instead of systemctl enable (systemd not running during build)
+mkdir -p /etc/systemd/system/sockets.target.wants
+ln -sf /usr/lib/systemd/system/podman.socket \
+    /etc/systemd/system/sockets.target.wants/podman.socket
