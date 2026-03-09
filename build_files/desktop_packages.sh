@@ -30,3 +30,6 @@ dnf install --setopt=install_weak_deps=False -y \
 sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 dnf install --setopt=install_weak_deps=False -y \
     zed
+
+
+brew install --cask font-jetbrains-mono-nerd-font
