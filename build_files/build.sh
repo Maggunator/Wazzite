@@ -25,9 +25,9 @@ echo "::group:: ===Flatpak Apps==="
 /ctx/install_flatpaks.sh
 echo "::endgroup::"
 
-echo "::group:: ===Wazuh agent==="
-/ctx/install_wazuhagent.sh
-echo "::endgroup::"
+#echo "::group:: ===Wazuh agent==="
+#/ctx/install_wazuhagent.sh
+#echo "::endgroup::"
 
 #### Enable System Services
 # Create symlinks directly instead of systemctl enable (systemd not running during build)
