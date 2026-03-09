@@ -27,5 +27,6 @@ dnf install --setopt=install_weak_deps=False -y \
     nerd-fonts
 
 # Zed editor via Terra
-#dnf install --setopt=install_weak_deps=False -y \
-#    zed
+sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+dnf install --setopt=install_weak_deps=False -y \
+    zed
