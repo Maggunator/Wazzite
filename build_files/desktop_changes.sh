@@ -39,12 +39,22 @@ mask_if_exists \
 # Peripherals not present
 mask_if_exists \
     ModemManager.service \
-    cups.service \
-    bluetooth.service
+    fprintd.service
 
 # Hardware-specific: no AMD GPU on Intel XPS 13
 mask_if_exists \
     modprobe@amdgpu.service
+
+# Unnecessary on this device
+mask_if_exists \
+    colord.service \
+    zfs-zed.service
+
+# Serial ports - not present on laptop
+mask_if_exists \
+    serial-getty@ttyS1.service \
+    serial-getty@ttyS2.service \
+    serial-getty@ttyS3.service
 
 # Boot performance improvements
 mask_if_exists \

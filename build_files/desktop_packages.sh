@@ -4,11 +4,20 @@ set ${SET_X:+-x} -eou pipefail
 
 echo "Running desktop packages scripts..."
 
+# Add Terra repository for Zed editor
+FEDORA_VERSION=$(rpm -E '%{fedora}')
+dnf5 install -y \
+    --repofrompath "terra,https://repos.fyralabs.com/terra${FEDORA_VERSION}" \
+    --setopt="terra.gpgkey=https://repos.fyralabs.com/terra${FEDORA_VERSION}/key.asc" \
+    terra-release
+
 # Sway window manager stack
 dnf install --setopt=install_weak_deps=False -y \
     sway \
     swaybg \
     swaylock \
+    swaylock-effects \
+    swayidle \
     waybar \
     rofi-wayland \
     mako \
@@ -27,7 +36,6 @@ dnf install --setopt=install_weak_deps=False -y \
     nerd-fonts
 
 # Zed editor via Terra
-sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 dnf install --setopt=install_weak_deps=False -y \
     zed
 
