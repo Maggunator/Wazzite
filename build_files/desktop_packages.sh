@@ -16,7 +16,6 @@ dnf install --setopt=install_weak_deps=False -y \
     sway \
     swaybg \
     swaylock \
-    swaylock-effects \
     swayidle \
     waybar \
     rofi-wayland \
@@ -25,7 +24,6 @@ dnf install --setopt=install_weak_deps=False -y \
     light \
     foot \
     thunar \
-    gvfs \
     network-manager-applet
 
 # System tools
