@@ -36,6 +36,3 @@ dnf install --setopt=install_weak_deps=False -y \
 # Zed editor via Terra
 dnf install --setopt=install_weak_deps=False -y \
     zed
-
-
-brew install --cask font-jetbrains-mono-nerd-font
