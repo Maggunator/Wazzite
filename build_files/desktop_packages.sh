@@ -4,12 +4,14 @@ set ${SET_X:+-x} -eou pipefail
 
 echo "Running desktop packages scripts..."
 
-# Add Terra repository for Zed editor
-FEDORA_VERSION=$(rpm -E '%{fedora}')
-# dnf5 install -y \
-#     --repofrompath "terra,https://repos.fyralabs.com/terra${FEDORA_VERSION}" \
-#     --setopt="terra.gpgkey=https://repos.fyralabs.com/terra${FEDORA_VERSION}/key.asc" \
-#     terra-release
+# # Add Terra repository for Zed editor (skip if already present)
+# if ! dnf5 repolist | grep -q terra; then
+#     FEDORA_VERSION=$(rpm -E '%{fedora}')
+#     dnf5 install -y \
+#         --repofrompath "terra,https://repos.fyralabs.com/terra${FEDORA_VERSION}" \
+#         --setopt="terra.gpgkey=https://repos.fyralabs.com/terra${FEDORA_VERSION}/key.asc" \
+#         terra-release
+# fi
 
 # Sway window manager stack
 dnf install --setopt=install_weak_deps=False -y \
@@ -26,6 +28,7 @@ dnf install --setopt=install_weak_deps=False -y \
     thunar \
     network-manager-applet
 
+
 # System tools
 dnf install --setopt=install_weak_deps=False -y \
     htop \
@@ -34,5 +37,14 @@ dnf install --setopt=install_weak_deps=False -y \
     nerd-fonts
 
 # Zed editor via Terra
-dnf install --setopt=install_weak_deps=False -y \
-    zed
+# Terra repo direkt als Datei anlegen statt --repofrompath
+cat > /etc/yum.repos.d/terra.repo << EOF
+[terra]
+name=Terra \$releasever
+baseurl=https://repos.fyralabs.com/terra\$releasever
+gpgkey=https://repos.fyralabs.com/terra\$releasever/key.asc
+gpgcheck=1
+enabled=1
+EOF
+
+dnf install --setopt=install_weak_deps=False -y zed
