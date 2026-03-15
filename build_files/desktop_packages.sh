@@ -6,10 +6,10 @@ echo "Running desktop packages scripts..."
 
 # Add Terra repository for Zed editor
 FEDORA_VERSION=$(rpm -E '%{fedora}')
-dnf5 install -y \
-    --repofrompath "terra,https://repos.fyralabs.com/terra${FEDORA_VERSION}" \
-    --setopt="terra.gpgkey=https://repos.fyralabs.com/terra${FEDORA_VERSION}/key.asc" \
-    terra-release
+# dnf5 install -y \
+#     --repofrompath "terra,https://repos.fyralabs.com/terra${FEDORA_VERSION}" \
+#     --setopt="terra.gpgkey=https://repos.fyralabs.com/terra${FEDORA_VERSION}/key.asc" \
+#     terra-release
 
 # Sway window manager stack
 dnf install --setopt=install_weak_deps=False -y \
