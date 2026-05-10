@@ -26,7 +26,7 @@ dnf install --setopt=install_weak_deps=False -y \
     light \
     foot \
     thunar \
-    network-manager-applet
+    network-manager-applet 
 
 
 # System tools
@@ -37,7 +37,9 @@ dnf install --setopt=install_weak_deps=False -y \
     nerd-fonts
 
 # Zed editor via Terra
-# Terra repo direkt als Datei anlegen statt --repofrompath
+# /usr/bin/zed is the ZFS Event Daemon, so Terra installs the editor to
+# /usr/libexec/zed-editor. The .desktop file uses 'zeditor' but the package
+# omits the symlink, so create it here.
 cat > /etc/yum.repos.d/terra.repo << EOF
 [terra]
 name=Terra \$releasever
@@ -48,3 +50,5 @@ enabled=1
 EOF
 
 dnf install --setopt=install_weak_deps=False -y zed
+ln -sf /usr/libexec/zed-editor /usr/bin/zeditor
+

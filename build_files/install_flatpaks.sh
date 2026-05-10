@@ -13,5 +13,4 @@ flatpak install -y flathub \
     org.libreoffice.LibreOffice \
     dev.aunetx.deezer \
     app.zen_browser.zen \
-    com.brave.Browser \
-    dev.zed.Zed
+    com.brave.Browser
