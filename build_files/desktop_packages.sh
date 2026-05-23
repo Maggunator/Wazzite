@@ -26,12 +26,20 @@ dnf install --setopt=install_weak_deps=False -y \
     light \
     foot \
     thunar \
-    network-manager-applet 
+    network-manager-applet \ 
+    niri \
+    fuzzel \
+    alacritty \
+    xwayland-satellite \
+    xdg-desktop-portal-gnome \
+    xdg-desktop-portal-gtk \
+    waypaper
 
 
 # System tools
 dnf install --setopt=install_weak_deps=False -y \
     htop \
+    btop \
     chezmoi \
     jetbrains-mono-fonts-all \
     nerd-fonts
