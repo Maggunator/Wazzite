@@ -30,10 +30,7 @@ dnf install --setopt=install_weak_deps=False -y \
     niri \
     fuzzel \
     alacritty \
-    xwayland-satellite \
-    xdg-desktop-portal-gnome \
-    xdg-desktop-portal-gtk \
-    waypaper
+    xwayland-satellite
 
 
 # System tools
