@@ -26,7 +26,7 @@ dnf install --setopt=install_weak_deps=False -y \
     light \
     foot \
     thunar \
-    network-manager-applet \ 
+    network-manager-applet \
     niri \
     fuzzel \
     alacritty \
