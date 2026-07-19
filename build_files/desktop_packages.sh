@@ -27,15 +27,12 @@ dnf install --setopt=install_weak_deps=False -y \
     foot \
     thunar \
     network-manager-applet \
-    niri \
-    fuzzel \
     alacritty \
     xwayland-satellite
 
 
 # System tools
 dnf install --setopt=install_weak_deps=False -y \
-    htop \
     btop \
     chezmoi \
     jetbrains-mono-fonts-all \
