@@ -77,7 +77,7 @@ jobs:
       #    just secureboot ${{ matrix.image }}
       - name: Lowercase Registry
         id: registry_case
-        uses: ASzc/change-string-case-action@v6
+        uses: ASzc/change-string-case-action@v8
         with:
           string: ${{ env.IMAGE_REGISTRY }}
       - name: Push to GHCR
